@@ -17,7 +17,7 @@ const App = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [errorMessage, setErrorMessage] = useState('');
   const [movieList, setMovieList] = useState([]);
-  const [isLoading, setIsLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   const fetchMovies = async () => {
     setIsLoading(true);
@@ -40,7 +40,7 @@ const App = () => {
       console.error('Error fetching movies:', error);
       setErrorMessage('Failed to fetch movies. Please try again later.');
     } finally{
-      setIsLoading(false);
+      setIsLoading(true);
     }
   }
 
@@ -69,13 +69,13 @@ const App = () => {
           ) : (
             <ul>
               {movieList.map((movie) => (
-                <p>{movie.title}</p>
+                <p key={movie.id} className="text-white">{movie.title}</p>
               ))}
             </ul>
           )}
         </section>
 
-        <h1>Search Term: {searchTerm}</h1>
+        {/* <h1>Search Term: {searchTerm}</h1> */}
       </div>
     </main>
   )
