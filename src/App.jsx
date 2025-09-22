@@ -1,6 +1,7 @@
 import Search from './components/Search.jsx'
 import { useEffect, useState } from 'react'
 import Spinner from './components/Spinner.jsx';
+import Footer from './components/Footer';
 import MovieCard from './components/MovieCard.jsx';
 import { useDebounce } from 'react-use';
 import { updateSearchCount , getTrendingMovies } from './appwrite.js';
@@ -125,6 +126,7 @@ const App = () => {
         </section>
 
         {/* <h1>Search Term: {searchTerm}</h1> */}
+        <Footer />
       </div>
     </main>
   )
